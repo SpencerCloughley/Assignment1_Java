@@ -6,6 +6,7 @@ public class Student {
     private String lastName;
     private int number;
     private ArrayList<String> activities;
+    private String fileName;
 
     /**
      * @param firstName Students first name
@@ -13,15 +14,15 @@ public class Student {
      * @param number Students number assigned by the school
      * @param activities A list of activities the student enjoys
      */
-    public Student(String firstName, String lastName, int number, ArrayList<String> activities) {
+    public Student(String firstName, String lastName, int number, ArrayList<String> activities,String fileName) {
         setFirstName(firstName);
         setLastName(lastName);
         setNumber(number);
         setActivities(activities);
+        setFileName(fileName);
     }
 
     /**
-     *
      * @return returns the first name of the student
      */
     public String getFirstName() {
@@ -35,11 +36,17 @@ public class Student {
      * @param firstName
      */
     public void setFirstName(String firstName) {
-        this.firstName = firstName;
+        if(firstName.length()>2) {
+            firstName = firstName.toLowerCase();
+            firstName = firstName.substring(0,1).toUpperCase() +firstName.substring(1);
+            firstName = firstName.trim();
+            this.firstName = firstName;
+        }
+        else
+            throw new IllegalArgumentException(firstName + " invalid, must be longer than 2 characters");
     }
 
     /**
-     *
      * @return return the last name of the student
      */
     public String getLastName() {
@@ -53,11 +60,17 @@ public class Student {
      * @param lastName
      */
     public void setLastName(String lastName) {
-        this.lastName = lastName;
+        if(lastName.length()>2) {
+            lastName = lastName.toLowerCase();
+            lastName = lastName.substring(0,1).toUpperCase() + lastName.substring(1);
+            lastName = lastName.trim();
+            this.lastName = lastName;
+        }
+        else
+            throw new IllegalArgumentException(lastName + " invalid, must be longer than 2 characters");
     }
 
     /**
-     *
      * @return returns the student number
      */
     public int getNumber() {
@@ -70,11 +83,13 @@ public class Student {
      * @param number
      */
     public void setNumber(int number) {
-        this.number = number;
+        if(number<9999999 && number>1000000)
+            this.number = number;
+        else
+            throw new IllegalArgumentException(number + "invalid, must be between 1000000 and 9999999");
     }
 
     /**
-     *
      * @return returns the list of student activities
      */
     public ArrayList<String> getActivities() {
@@ -87,6 +102,24 @@ public class Student {
      * @param activities
      */
     public void setActivities(ArrayList<String> activities) {
-        this.activities = activities;
+        if(!activities.isEmpty())
+            this.activities = activities;
+        else
+            throw new IllegalArgumentException("ArrayList was empty, please submit a list with at least 1 activity");
+    }
+
+    /**
+     * @return returns the String version of the fileName
+     */
+    public String getFileName() {
+        return fileName;
+    }
+
+    /**
+     * sets the name of the image file for the student
+     * @param fileName
+     */
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
     }
 }
