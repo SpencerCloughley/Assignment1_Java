@@ -1,5 +1,6 @@
 package com.example.assignment2;
 import java.util.ArrayList;
+import javafx.scene.image.Image;
 
 public class Student {
     private String firstName;
@@ -121,5 +122,9 @@ public class Student {
      */
     public void setFileName(String fileName) {
         this.fileName = fileName;
+    }
+
+    public Image getImage(){
+        return new Image(Student.class.getResourceAsStream(fileName));
     }
 }
