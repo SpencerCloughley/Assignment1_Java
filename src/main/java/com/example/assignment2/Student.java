@@ -110,6 +110,19 @@ public class Student {
     }
 
     /**
+     * adds the inputted activity to the activity list
+     * ensures the activity is characters
+     * @param activity
+     */
+    public void addActivity(String activity){
+        for(int i=0; i<activity.length(); i++){
+            if(Character.isDigit(activity.charAt(i)))
+                throw new IllegalArgumentException(activity + " is invalid, activity must be all characters, no numbers");
+        }
+        this.activities.add(activity);
+    }
+
+    /**
      * @return returns the String version of the fileName
      */
     public String getFileName() {

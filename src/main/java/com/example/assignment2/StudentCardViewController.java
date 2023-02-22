@@ -41,24 +41,24 @@ public class StudentCardViewController implements Initializable {
 
         ArrayList<String> spencer=new ArrayList<String>();
         spencer.add("Video Games");
-        spencer.add("Rock Climbing");
-        spencer.add("Cross Stitch");
-        spencer.add("Going to Concerts");
         Student s1 = new Student("Spencer","Cloughley",1178551,spencer,"images/spencer.png");
+        s1.addActivity("Rock Climbing");
+        s1.addActivity("Cross Stitch");
+        s1.addActivity("Going to Concerts");
 
         ArrayList<String> adrian=new ArrayList<String>();
         adrian.add("Flying Planes");
-        adrian.add("Video Games");
-        adrian.add("Piano");
         //names inputted in incorrect format to show adjustment to correct format
         Student s2= new Student("adrian","BISNATH",1687987,adrian,"images/adrian.png");
+        s2.addActivity("Video Games");
+        s2.addActivity("Piano");
 
         ArrayList<String> scott=new ArrayList<String>();
         scott.add("Going to Concerts");
-        scott.add("Theatre");
-        scott.add("Crochet");
         //names inputted in incorrect format to show adjustment to correct format
         Student s3 = new Student("ScoTT","denBy",3467459,scott,"images/scott.png");
+        s3.addActivity("Theatre");
+        s3.addActivity("Crochet");
 
         students = new Student[]{s1, s2, s3};
 
